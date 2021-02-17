@@ -6,7 +6,7 @@
 | :----: | :----: | :----: | :----: | :----: | :----: |
 |   [1](#2.1)   | [直方图装水](https://www.bilibili.com/video/BV1bV411t7sb?t=2&p=2) |  |
 |   [2](#2.2)   | [求最长无重复字符的字串长度](https://www.bilibili.com/video/BV1bV411t7sb?p=13)      |      |  |  |
-|   [3](#2.3)   | [求数组中字符串类型](https://www.bilibili.com/video/BV1bV411t7sb?p=14)      |     |  |  |
+|   [3](#2.3)   | [求数组中字符串类型](https://www.bilibili.com/video/BV1bV411t7sb?p=14)      |   2021-2-17  | [java](https://github.com/iteratorscode/algorithm/blob/main/src/main/java/q3/Solution.java) |  |
 |    id  |     |   |  |  |
 
 
