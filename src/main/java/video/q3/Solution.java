@@ -1,4 +1,4 @@
-package q3;
+package video.q3;
 
 import java.util.HashSet;
 import java.util.Set;
