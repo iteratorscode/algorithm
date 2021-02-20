@@ -1,31 +1,32 @@
 package book.q2;
 
-import java.util.Stack;
+import java.util.LinkedList;
 
 /**
- * 通过递归函数和栈操作反转栈元素
+ * 利用栈和递归操作反转栈
  *
  * @author iterators
- * @date 2021.02.19
+ * @date 2021/2/19 下午5:26
  */
 public class Solution {
 
-    public static void reverse(Stack<Integer> stack) {
+    public void reverseStack(LinkedList<Integer> stack) {
         if (stack.isEmpty()) {
             return;
         }
-        Integer topElement = getAndRemoveLastElement(stack);
-        reverse(stack);
-        stack.push(topElement);
+        Integer lastElement = getAndRemoveLastElement(stack);
+        reverseStack(stack);
+        stack.push(lastElement);
     }
 
-    private static Integer getAndRemoveLastElement(Stack<Integer> stack) {
+    private Integer getAndRemoveLastElement(LinkedList<Integer> stack) {
         Integer topElement = stack.pop();
         if (stack.isEmpty()) {
             return topElement;
         }
-        Integer last = getAndRemoveLastElement(stack);
+        Integer element = getAndRemoveLastElement(stack);
         stack.push(topElement);
-        return last;
+        return element;
     }
+
 }
