@@ -20,6 +20,8 @@ public class CoinChange {
         Arrays.fill(dp, Integer.MAX_VALUE);
         int change = coinChange(coins, amount, dp);
         System.out.println("change = " + change);
+        int coinChange2 = coinChange2(coins, amount);
+        System.out.println("coinChange2 = " + coinChange2);
     }
 
     /**
@@ -78,5 +80,29 @@ public class CoinChange {
             result = Math.min(result, subProblem + 1);
         }
         return result;
+    }
+
+    /**
+     * 自底向上 dp
+     */
+    public static int coinChange2(int[] coins, int amount) {
+        // 初始化base case
+        int[] dp = new int[amount + 1];
+        Arrays.fill(dp, amount + 1);
+        dp[0] = 0;
+
+        // 穷举状态
+        // dp[i] 表示凑成amount=i的零钱，最少需要的钱币张数
+        for (int i = 1; i < dp.length; i++) {
+            // 遍历计算所有的钱币子问题
+            for (int coin : coins) {
+                // 总金额为负数，跳过
+                if (i - coin < 0) {
+                    continue;
+                }
+                dp[i] = Math.min(dp[i], dp[i - coin] + 1);
+            }
+        }
+        return dp[amount] == amount + 1 ? -1 : dp[amount];
     }
 }
