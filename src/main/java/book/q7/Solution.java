@@ -10,12 +10,15 @@ public class Solution {
 
     public static void main(String[] args) {
         int[] arr = {5, 3, 2};
-        int aim = 1;
+        int aim = 20;
         int ways = f(arr, 0, aim);
         System.out.println("ways = " + ways);
 
         int dpWays = dp(arr, aim);
         System.out.println("dpWays = " + dpWays);
+
+        int result = dpWithSmallSpace(arr, aim);
+        System.out.println("result = " + result);
     }
 
     private static int f(int[] arr, int index, int rest) {
@@ -68,5 +71,37 @@ public class Solution {
         }
 
         return dp[arr.length - 1][aim] == Integer.MAX_VALUE ? -1 : dp[arr.length - 1][aim];
+    }
+
+
+    private static int dpWithSmallSpace(int[] arr, int aim) {
+        // 压缩数组
+        // dp[i][j]的更新只依赖上一跳dp[i-1][0...N]的结果，所以可以将二维数组进行压缩
+        // dp[i]表示组成目标i的最少货币数
+        int[] dp = new int[aim + 1];
+        
+        // Base Case: dp[0] 表示
+        // 使用arr[0]填充的dp数组是使用arr[0..1]填充数组dp的上一跳，上一跳的信息必须都初始化
+        dp[0] = 0;
+        for (int i = 1; i < dp.length; i++) {
+            dp[i] = Integer.MAX_VALUE;
+            if (i - arr[0] >= 0 && dp[i - arr[0]] != Integer.MAX_VALUE) {
+                dp[i] = dp[i - arr[0]] + 1;
+            }
+        }
+        
+        // 迭代求解dp[i] = Math.min(dp[i-k*arr[i]]) + k
+        for (int i = 1; i < arr.length; i++) {
+            // 使用货币arr[0...i]构成aim的最少货币数
+            for (int j = 1; j < dp.length; j++) {
+                int left = Integer.MAX_VALUE;
+                if (j - arr[i] >= 0 && dp[j - arr[i]] != Integer.MAX_VALUE) {
+                    left = Math.min(left, dp[j - arr[i]] + 1);
+                }
+                dp[j] = Math.min(left, dp[j]);
+            }
+        }
+
+        return dp[aim] == Integer.MAX_VALUE ? -1 : dp[aim];
     }
 }
