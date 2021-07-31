@@ -16,6 +16,8 @@ public class Solution {
         System.out.println("result = " + result);
         int dpResult = dp(arr, aim);
         System.out.println("dpResult = " + dpResult);
+        int moreSpace = moreSpace(arr, aim);
+        System.out.println("moreSpace = " + moreSpace);
     }
 
     private static int f(int[] arr, int index, int aim) {
@@ -58,5 +60,38 @@ public class Solution {
             }
         }
         return dp[aim];
+    }
+
+    /**
+     * 动态规划：dp[i]表示使用数组元素arr[0...j]组成目标金额aim=i的方法数
+     *
+     * 要求每个元素只使用1次
+     */
+    public static int moreSpace(int[] arr, int aim) {
+        int[][] dp = new int[arr.length][aim + 1];
+        // Base case: dp[0][j]
+        for (int i = 1; i <= aim; i++) {
+            dp[0][i] = i == arr[0] ? 1 : 0;
+        }
+
+        // dp[i][0]
+        for (int i = 0; i < arr.length; i++) {
+            dp[i][0] = 1;
+        }
+
+        // 每个元素只能使用一次
+        // dp[i][j] = dp[i-1][j] + dp[i-1][j-arr[i]]
+        for (int i = 1; i < arr.length; i++) {
+            for (int j = 1; j <= aim; j++) {
+                // 不使用当前元素arr[i]构成j的方法数
+                dp[i][j] = dp[i - 1][j];
+                // 使用当前元素arr[i]构成j的方法数
+                if (j - arr[i] >= 0) {
+                    dp[i][j] += dp[i-1][j - arr[i]];
+                }
+            }
+        }
+
+        return dp[arr.length - 1][aim];
     }
 }
