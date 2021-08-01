@@ -116,3 +116,10 @@ Move from left to right
 Move from mid to right
 
 ```
+
+#### 最长公共子序列
+给定两个字符串str1和str2，返回两个字符串的最长公共子序列。
+```markdown
+str1="1A2C3D4B56"，str2="B1D23CA45B6A"，
+"123456"或者"12C4B6"都是最长公共子序列，任意返回一个即可。
+```
