@@ -125,3 +125,10 @@ Move from mid to right
 str1="1A2C3D4B56"，str2="B1D23CA45B6A"，
 "123456"或者"12C4B6"都是最长公共子序列，任意返回一个即可。
 ```
+
+#### 最小编辑代价 & 最小编辑距离
+给定一个两个字符串str1和str2，在给定3个整数ic，dc和rc分别表示插入、删除和替换一个字符串的代价，返回将str1编辑成str2的最小代价
+```markdown
+str1 = "abc", str2 = "adc", ic = 5, dc = 3, rc = 2
+从str1编辑称str2，将b替换称d是代价最小的，所以返回2
+```
