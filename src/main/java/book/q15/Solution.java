@@ -26,7 +26,7 @@ public class Solution {
     }
 
     private static int process(char[] str1, char[] str2) {
-        // dp[i][j] 表示将str1[0...i-1]变成str2[0...j-1]的最小编辑距离
+        // dp[i][j] 表示将str1[0...i-1]变成str2[0...j-1]的最小编辑距离，因为dp[0]位置是空的表示
         int[][] dp = new int[str1.length + 1][str2.length + 1];
         // base case
         // 两个空字符串，不用任何操作即是相同的
@@ -46,6 +46,12 @@ public class Solution {
         // 2 从上一个情况发生了替换操作
         // 3 上一个情况发生了插入操作
         // 4 上一个情况发生了删除操作
+        // dp[i][j]表示将str1[0...i-1]转换成str2[0...j-1]的最小距离，那么dp[i][j]可能来自4种情况
+        // str1[0...i-2] 与 str2[0...j-2] 经过变化能够成为 str1[0...i-1] 与str2[0...j-1], 即由dp[i-1][j-1]演化到dp[i][j]
+        // 1: 如果str1[0...i-2] == str2[0...j-2]，当str1[i-1]==str2[j-1], 那么意味着什么也不用做就可以，dp[i][j] = dp[i-1][j-1]
+        // 2: 如果str1[0...i-2] == str2[0...j-2]，当str1[i-1]!=str2[j-1], 意味着将str1[i-1]替换成str2[j-1]，dp[i][j] = dp[i-1][j-1] + 1
+        // 3: 如果str1[0...i-1] == str2[0...j-2]，此时要使两者相同，需要在str1种插入一个字符str2[j-1], dp[i][j] = dp[i][j-1] + 1
+        // 4: 如果str1[0...i-2] == str2[0...j-1]，此时要使两者相同，需要将str1[i-1]处的字符删除，dp[i][j] = dp[i-1][j] + 1
         for (int i = 1; i < dp.length; i++) {
             for (int j = 1; j < dp[0].length; j++) {
                 if (str1[i - 1] == str2[j - 1]) {
