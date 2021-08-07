@@ -132,3 +132,11 @@ str1="1A2C3D4B56"，str2="B1D23CA45B6A"，
 str1 = "abc", str2 = "adc", ic = 5, dc = 3, rc = 2
 从str1编辑称str2，将b替换称d是代价最小的，所以返回2
 ```
+
+#### 字符串的交错组成
+给定3个字符串str1，str2和aim。如果aim包含且仅包含来自str1和str2的所有字符，而且在aim中属于str1的字符之间保持原来在str1中的顺序，在aim中属于str2的字符之间保持原来在str2中的顺序，
+那么称aim是str1和str2的交错组成。实现一个函数，判断aim是否是str1和str2的交错组成。
+
+```markdown
+str1="AB"，str2="12"。那么"AB12"，"A1B2"，"A12B"，"1A2B"和"1AB2"等都是str1和str2的交错组成。
+```
