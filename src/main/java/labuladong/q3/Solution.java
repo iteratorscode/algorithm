@@ -14,6 +14,16 @@ public class Solution {
         int[] items = {};
         int target = 3;
         int index = binarySearch(items, target);
+
+        int left = 1;
+
+        int right = 10;
+
+        int r = left + (right - left) >>> 1;
+        System.out.println("r = " + r);
+
+        int r1 = left + (right - left) / 2;
+        System.out.println("r1 = " + r1);
     }
 
     private static int binarySearch(int[] items, int target){
@@ -66,7 +76,8 @@ public class Solution {
         int low = 0;
         int high = items.length - 1;
         while (low <= high) {
-            int mid = low + (high - low) >>> 1;
+            // int mid = low + (high - low) / 2;
+            int mid = low + (high - low) >>> 1; // 为什么这种方式执行超时
             if (items[mid] == target) {
                 // 左边界向右收缩
                 low = mid + 1;
