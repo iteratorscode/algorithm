@@ -95,4 +95,8 @@ int binarySearch(int[] nums, int target) {
 
 ## 数组前缀和
 
-- https://leetcode-cn.com/problems/sum-of-all-odd-length-subarrays/
+- [所有奇数长度子数组的和](https://leetcode-cn.com/problems/sum-of-all-odd-length-subarrays/)
+
+## 差分数组
+
+- [航班预定统计](https://leetcode-cn.com/problems/corporate-flight-bookings/)
