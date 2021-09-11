@@ -40,6 +40,9 @@ diff[i] = nums[i] - nums[i-1]; 其中diff[0] = nums[0]
 
 #### 双指针
 
+**经典题目**
+- [合并两个有序数组](https://leetcode-cn.com/leetbook/read/top-interview-questions/xmi2l7/)
+
 #### 堆
 大顶堆：每个结点的值都大于或等于其左右孩子结点的值。<br/>
 小顶堆：每个结点的值都小于或等于其左右孩子结点的值。<br/>
@@ -54,16 +57,31 @@ diff[i] = nums[i] - nums[i-1]; 其中diff[0] = nums[0]
 #### 广度优先搜索
 求从A --> B 的最短路径
 
+**经典题型**
+- [K站中转内最便宜的航班](https://leetcode-cn.com/problems/cheapest-flights-within-k-stops/)
+
 **经典题目**
 - [K 站中转内最便宜的航班](https://leetcode-cn.com/problems/cheapest-flights-within-k-stops/)
 
 #### 深度优先搜索
+回溯 + 剪枝（提前结束某个分支的继续搜索）
 
 **经典题目**
 - [所有可能的路径](https://leetcode-cn.com/problems/all-paths-from-source-to-target/)
+- [矩阵中的路径](https://leetcode-cn.com/problems/ju-zhen-zhong-de-lu-jing-lcof/)
+- [机器人的运动范围](https://leetcode-cn.com/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof/)
+
+#### 前缀树（Tire树）
+
+用于统计和排序大量的字符串（但不仅限于字符串），所以经常被搜索引擎系统用于文本词频统计。它的优点是：最大限度地减少无谓的字符串比较。Trie的核心思想是空间换时间。利用字符串的公共前缀来降低查询时间的开销以达到提高效率的目的
+
+**经典题目**
+- [不含连续1的非负整数](https://leetcode-cn.com/problems/non-negative-integers-without-consecutive-ones/)
 
 #### 动态规划
 
+**经典题型**
+- [高楼扔鸡蛋](https://leetcode-cn.com/problems/super-egg-drop/solution/ji-ben-dong-tai-gui-hua-jie-fa-by-labuladong/)
 
 ### 常用的Java数据结构
 
