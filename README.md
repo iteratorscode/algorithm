@@ -38,6 +38,11 @@ int diff = new int[nums.length];
 diff[i] = nums[i] - nums[i-1]; 其中diff[0] = nums[0]
 ```
 
+**经典题目**
+- [生存人数](https://leetcode-cn.com/problems/living-people-lcci/)
+- 并发下载问题，给定N个二维数组，每个数组中，第一个数x，为下载开始时间，第二个数为y，为下载持续时间，请输出同一时间最多有多少任务运行。
+- [航班预订统计](https://leetcode-cn.com/problems/corporate-flight-bookings/)
+
 #### 双指针
 
 **经典题目**
