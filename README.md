@@ -88,6 +88,16 @@ diff[i] = nums[i] - nums[i-1]; 其中diff[0] = nums[0]
 **经典题型**
 - [高楼扔鸡蛋](https://leetcode-cn.com/problems/super-egg-drop/solution/ji-ben-dong-tai-gui-hua-jie-fa-by-labuladong/)
 
+#### 单调栈
+
+**经典题目**
+- [每日温度](https://leetcode-cn.com/problems/daily-temperatures/)
+
+#### 单调队列
+
+**经典题目**
+- [滑动窗口的最大值](https://leetcode-cn.com/problems/hua-dong-chuang-kou-de-zui-da-zhi-lcof/)
+
 ### 常用的Java数据结构
 
 #### 堆`PriotityQueue`
